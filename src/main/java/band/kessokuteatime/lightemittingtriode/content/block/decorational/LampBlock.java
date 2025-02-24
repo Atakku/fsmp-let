@@ -5,6 +5,7 @@ import band.kessokuteatime.lightemittingtriode.content.block.base.AbstractWaterL
 import band.kessokuteatime.lightemittingtriode.content.base.ChainedActions;
 import band.kessokuteatime.lightemittingtriode.content.block.base.tag.Dimmable;
 import band.kessokuteatime.lightemittingtriode.content.block.base.tag.Dyable;
+import band.kessokuteatime.lightemittingtriode.content.block.base.tag.Invertable;
 import band.kessokuteatime.lightemittingtriode.content.variant.Wrapper;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -24,7 +25,7 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 
-public class LampBlock extends AbstractWaterLoggableLampBlock implements Dimmable, Dyable {
+public class LampBlock extends AbstractWaterLoggableLampBlock implements Dimmable, Dyable, Invertable {
     public LampBlock(Wrapper wrapper) {
         super(wrapper.wrapSettings(s -> s
                 .luminance(state ->
@@ -38,18 +39,20 @@ public class LampBlock extends AbstractWaterLoggableLampBlock implements Dimmabl
         setDefaultState(
                 getDefaultState()
                         .with(Properties.LIT, false)
+                        .with(Properties.INVERTED, false)
                         .with(LightEmittingTriode.Properties.DIM, false)
         );
     }
 
-    protected boolean receivingPower(World world, BlockPos pos) {
-        return world.isReceivingRedstonePower(pos);
+    protected boolean shouldBeLit(World world, BlockPos pos, BlockState state) {
+        return world.isReceivingRedstonePower(pos) ^ state.get(Properties.INVERTED);
     }
 
     @Override
     public BlockState ofAnotherColor(BlockState state, DyeColor dyeColor) {
         return super.ofAnotherColor(state, dyeColor)
                 .with(Properties.LIT, state.get(Properties.LIT))
+                .with(Properties.INVERTED, state.get(Properties.INVERTED))
                 .with(LightEmittingTriode.Properties.DIM, state.get(LightEmittingTriode.Properties.DIM));
     }
 
@@ -65,7 +68,7 @@ public class LampBlock extends AbstractWaterLoggableLampBlock implements Dimmabl
 
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        super.appendProperties(builder.add(Properties.LIT, LightEmittingTriode.Properties.DIM));
+        super.appendProperties(builder.add(Properties.LIT, Properties.INVERTED, LightEmittingTriode.Properties.DIM));
     }
 
     @Override
@@ -77,7 +80,7 @@ public class LampBlock extends AbstractWaterLoggableLampBlock implements Dimmabl
     public void onBlockAdded(BlockState state, World world, BlockPos pos, BlockState oldState, boolean notify) {
         super.onBlockAdded(state, world, pos, oldState, notify);
 
-        if (receivingPower(world, pos))
+        if (shouldBeLit(world, pos, state))
             world.setBlockState(pos, state.with(Properties.LIT, true));
     }
 
@@ -92,7 +95,7 @@ public class LampBlock extends AbstractWaterLoggableLampBlock implements Dimmabl
         return ChainedActions.chain(
                 state, world, pos, player, hand, hit,
                 super::onUse,
-                Dimmable.super::onUse, Dyable.super::onUse
+                Dimmable.super::onUse, Dyable.super::onUse, Invertable.super::onUse
         );
     }
 
@@ -103,7 +106,7 @@ public class LampBlock extends AbstractWaterLoggableLampBlock implements Dimmabl
         if (!world.isClient) {
             boolean lit = state.get(Properties.LIT);
 
-            if (lit != receivingPower(world, pos)) {
+            if (lit != shouldBeLit(world, pos, state)) {
                 if (lit)
                     world.scheduleBlockTick(pos, this, 2);
                 else
@@ -116,7 +119,7 @@ public class LampBlock extends AbstractWaterLoggableLampBlock implements Dimmabl
     public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
         super.scheduledTick(state, world, pos, random);
 
-        if (state.get(Properties.LIT) && !receivingPower(world, pos))
+        if (state.get(Properties.LIT) && !shouldBeLit(world, pos, state))
             world.setBlockState(pos, state.cycle(Properties.LIT), 2);
     }
 }

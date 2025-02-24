@@ -44,6 +44,7 @@
 
     "tooltip.let.empty": "",
 
+    "tooltip.let.feature.invertable": "§8- Can be inverted with a §7redstone torch",
     "tooltip.let.feature.dyable": "§8- 可以被§7染料§8染色",
     "tooltip.let.feature.dimmable": "§8- 可以被§7遮光粉§8遮住光芒",
     "tooltip.let.feature.emits_light": "§8- 在被触发时发光",

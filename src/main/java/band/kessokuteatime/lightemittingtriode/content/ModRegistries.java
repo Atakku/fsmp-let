@@ -4,6 +4,7 @@ import band.kessokuteatime.lightemittingtriode.LightEmittingTriode;
 import band.kessokuteatime.lightemittingtriode.content.block.base.AbstractLampBlock;
 import band.kessokuteatime.lightemittingtriode.content.block.base.tag.Dimmable;
 import band.kessokuteatime.lightemittingtriode.content.block.base.tag.Dyable;
+import band.kessokuteatime.lightemittingtriode.content.block.base.tag.Invertable;
 import band.kessokuteatime.lightemittingtriode.content.item.ShadeItem;
 import band.kessokuteatime.lightemittingtriode.content.variant.Variant;
 import band.kessokuteatime.lightemittingtriode.content.variant.Wrapper;
@@ -164,7 +165,8 @@ public class ModRegistries {
         DIODES(TagKey.of(RegistryKeys.BLOCK, LightEmittingTriode.id("diodes")), null),
         TRIODES(TagKey.of(RegistryKeys.BLOCK, LightEmittingTriode.id("triodes")), null),
         DIMMABLES(TagKey.of(RegistryKeys.BLOCK, LightEmittingTriode.id("dimmable")), Dimmable.class),
-        DYABLES(TagKey.of(RegistryKeys.BLOCK, LightEmittingTriode.id("dyable")), Dyable.class);
+        DYABLES(TagKey.of(RegistryKeys.BLOCK, LightEmittingTriode.id("dyable")), Dyable.class),
+        INVERTABLES(TagKey.of(RegistryKeys.BLOCK, LightEmittingTriode.id("invertable")), Invertable.class);
 
         final TagKey<Block> tag;
         @Nullable final Class<?> requiredInterface;

@@ -27,6 +27,7 @@
 
     "tooltip.let.empty": "",
 
+    "tooltip.let.feature.invertable": "§8- Can be inverted with a §7redstone torch",
     "tooltip.let.feature.dyable": "§8- Can be colored by §7dyes",
     "tooltip.let.feature.dimmable": "§8- Can be dimmed by §7shades",
     "tooltip.let.feature.emits_light": "§8- Emits light when triggered",

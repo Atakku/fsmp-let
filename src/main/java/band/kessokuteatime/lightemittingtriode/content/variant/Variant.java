@@ -36,13 +36,13 @@ public enum Variant {
 
             List.of(
                     ModTooltip.EMPTY,
-                    ModTooltip.DYABLE, ModTooltip.DIMMABLE
+                    ModTooltip.DYABLE, ModTooltip.DIMMABLE, ModTooltip.INVERTABLE
             ),
 
             new DataProvider(
                     () -> AbstractBlock.Settings.copy(Blocks.GLASS)
                             .sounds(BlockSoundGroup.AMETHYST_BLOCK),
-                    () -> List.of(ModRegistries.BlockTag.TRIODES, ModRegistries.BlockTag.DIMMABLES, ModRegistries.BlockTag.DYABLES),
+                    () -> List.of(ModRegistries.BlockTag.TRIODES, ModRegistries.BlockTag.DIMMABLES, ModRegistries.BlockTag.DYABLES, ModRegistries.BlockTag.INVERTABLES),
 
                     wrapper -> ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, wrapper.block())
                             .input(ModRegistries.Items.LET, 4)
@@ -62,13 +62,13 @@ public enum Variant {
 
             List.of(
                     ModTooltip.EMPTY,
-                    ModTooltip.DYABLE, ModTooltip.DIMMABLE
+                    ModTooltip.DYABLE, ModTooltip.DIMMABLE, ModTooltip.INVERTABLE
             ),
 
             new DataProvider(
                     () -> AbstractBlock.Settings.copy(Blocks.GLASS)
                             .sounds(BlockSoundGroup.AMETHYST_BLOCK),
-                    () -> List.of(ModRegistries.BlockTag.TRIODES, ModRegistries.BlockTag.DIMMABLES, ModRegistries.BlockTag.DYABLES),
+                    () -> List.of(ModRegistries.BlockTag.TRIODES, ModRegistries.BlockTag.DIMMABLES, ModRegistries.BlockTag.DYABLES, ModRegistries.BlockTag.INVERTABLES),
 
                     wrapper -> ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, wrapper.block())
                             .input(ModRegistries.Items.LET, 2)
@@ -97,14 +97,14 @@ public enum Variant {
 
             List.of(
                     ModTooltip.EMPTY,
-                    ModTooltip.DYABLE, ModTooltip.DIMMABLE
+                    ModTooltip.DYABLE, ModTooltip.DIMMABLE, ModTooltip.INVERTABLE
             ),
 
             new DataProvider(
                     () -> AbstractBlock.Settings.copy(Blocks.GLASS)
                             .sounds(BlockSoundGroup.AMETHYST_BLOCK)
                             .pistonBehavior(PistonBehavior.DESTROY),
-                    () -> List.of(ModRegistries.BlockTag.TRIODES, ModRegistries.BlockTag.DIMMABLES, ModRegistries.BlockTag.DYABLES),
+                    () -> List.of(ModRegistries.BlockTag.TRIODES, ModRegistries.BlockTag.DIMMABLES, ModRegistries.BlockTag.DYABLES, ModRegistries.BlockTag.INVERTABLES),
 
                     wrapper -> ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, wrapper.block())
                             .input(ModRegistries.Items.LET)
@@ -133,14 +133,14 @@ public enum Variant {
 
             List.of(
                     ModTooltip.EMPTY,
-                    ModTooltip.DYABLE, ModTooltip.DIMMABLE
+                    ModTooltip.DYABLE, ModTooltip.DIMMABLE, ModTooltip.INVERTABLE
             ),
 
             new DataProvider(
                     () -> AbstractBlock.Settings.copy(Blocks.GLASS)
                             .sounds(BlockSoundGroup.LANTERN)
                             .pistonBehavior(PistonBehavior.DESTROY),
-                    () -> List.of(ModRegistries.BlockTag.DIODES, ModRegistries.BlockTag.DIMMABLES, ModRegistries.BlockTag.DYABLES),
+                    () -> List.of(ModRegistries.BlockTag.DIODES, ModRegistries.BlockTag.DIMMABLES, ModRegistries.BlockTag.DYABLES, ModRegistries.BlockTag.INVERTABLES),
 
                     wrapper -> ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, wrapper.block())
                             .input(Items.IRON_NUGGET)
@@ -172,14 +172,14 @@ public enum Variant {
 
             List.of(
                     ModTooltip.EMPTY,
-                    ModTooltip.DYABLE, ModTooltip.DIMMABLE
+                    ModTooltip.DYABLE, ModTooltip.DIMMABLE, ModTooltip.INVERTABLE
             ),
 
             new DataProvider(
                     () -> AbstractBlock.Settings.copy(Blocks.GLASS)
                             .sounds(BlockSoundGroup.CHAIN)
                             .pistonBehavior(PistonBehavior.DESTROY),
-                    () -> List.of(ModRegistries.BlockTag.DIODES, ModRegistries.BlockTag.DIMMABLES, ModRegistries.BlockTag.DYABLES),
+                    () -> List.of(ModRegistries.BlockTag.DIODES, ModRegistries.BlockTag.DIMMABLES, ModRegistries.BlockTag.DYABLES, ModRegistries.BlockTag.INVERTABLES),
 
                     wrapper -> ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, wrapper.block())
                             .input(Items.GOLD_NUGGET)

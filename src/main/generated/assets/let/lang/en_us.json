@@ -46,5 +46,6 @@
   "tooltip.let.feature.dimmable": "§8- Can be dimmed by §7shades",
   "tooltip.let.feature.dyable": "§8- Can be colored by §7dyes",
   "tooltip.let.feature.emits_light": "§8- Emits light when triggered",
+  "tooltip.let.feature.invertable": "§8- Can be inverted with a §7redstone torch",
   "tooltip.let.shade": "§7Use on light sources to make\n§7them dim, while can be scraped\n§7off using tools"
 }

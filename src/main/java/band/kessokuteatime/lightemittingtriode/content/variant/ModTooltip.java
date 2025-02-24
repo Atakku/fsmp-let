@@ -10,6 +10,7 @@ import java.util.function.Consumer;
 public enum ModTooltip implements WithMultilineTooltip {
     EMPTY(false, "empty"),
 
+    INVERTABLE(true, "invertable"),
     DYABLE(true, "dyable"),
     DIMMABLE(true, "dimmable"),
     EMITS_LIGHT(true, "emits_light"),
