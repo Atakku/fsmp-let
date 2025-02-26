@@ -75,6 +75,7 @@ public class ModRegistries {
     public static class Blocks {
         public enum Type {
             CLEAR(Variant.CLEAR.with(Variant.Size.NORMAL)),
+            SOLID(Variant.SOLID.with(Variant.Size.NORMAL)),
 
             SLAB(Variant.SLAB.with(Variant.Size.NORMAL)),
             CEILING(Variant.CEILING.with(Variant.Size.NORMAL)),

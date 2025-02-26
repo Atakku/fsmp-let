@@ -55,6 +55,33 @@ public enum Variant {
                     null
             )
     ),
+    SOLID("solid", size -> 15,
+            size -> VoxelShapes.fullCube(),
+
+            LampBlock::new,
+            ColoredBlockItem::new,
+
+            List.of(
+                    ModTooltip.EMPTY,
+                    ModTooltip.DYABLE, ModTooltip.DIMMABLE, ModTooltip.INVERTABLE
+            ),
+
+            new DataProvider(
+                    () -> AbstractBlock.Settings.copy(Blocks.REDSTONE_LAMP)
+                            .sounds(BlockSoundGroup.AMETHYST_BLOCK),
+                    () -> List.of(ModRegistries.BlockTag.TRIODES, ModRegistries.BlockTag.DIMMABLES, ModRegistries.BlockTag.DYABLES, ModRegistries.BlockTag.INVERTABLES),
+
+                    wrapper -> ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, wrapper.block())
+                            .input(ModRegistries.Items.LET, 3)
+                            .input(wrapper.dye())
+                            .criterion(FabricRecipeProvider.hasItem(ModRegistries.Items.LET),
+                                    FabricRecipeProvider.conditionsFromItem(ModRegistries.Items.LET))
+                            .criterion(FabricRecipeProvider.hasItem(wrapper.dye()),
+                                    FabricRecipeProvider.conditionsFromItem(wrapper.dye())),
+
+                    null
+            )
+    ),
     SLAB("slab", size -> 13,
             size -> VoxelShaper.fromBottomCenter(16, 8),
             SlabFacingLampBlock::new,

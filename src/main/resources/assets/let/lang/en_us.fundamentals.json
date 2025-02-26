@@ -8,6 +8,7 @@
     "itemGroup.let.general": "Light Emitting Triode",
 
     "block.let.clear": "%s Clear",
+    "block.let.solid": "%s Solid",
     "block.let.slab": "%s Slab",
 
     "block.let.ceiling": "%s Ceiling",
