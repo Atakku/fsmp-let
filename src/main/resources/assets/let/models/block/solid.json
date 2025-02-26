@@ -1,0 +1,7 @@
+{
+	"parent": "minecraft:block/cube_all",
+	"textures": {
+		"particle": "let:block/clear",
+		"all": "let:block/solid"
+	}
+}
