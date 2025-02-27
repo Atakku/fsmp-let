@@ -82,7 +82,7 @@ public enum Variant {
                     null
             )
     ),
-    SLAB("slab", size -> 13,
+    SLAB("slab", size -> 15,
             size -> VoxelShaper.fromBottomCenter(16, 8),
             SlabFacingLampBlock::new,
             ColoredBlockItem::new,
@@ -117,7 +117,7 @@ public enum Variant {
                                     FabricRecipeProvider.conditionsFromItem(ModRegistries.Items.LET))
             )
     ),
-    CEILING("ceiling", size -> 10,
+    CEILING("ceiling", size -> 15,
             size -> VoxelShaper.fromBottomCenter(16, 1),
             FacingLampBlock::new,
             ColoredBlockItem::new,
@@ -153,7 +153,7 @@ public enum Variant {
                                     FabricRecipeProvider.conditionsFromItem(ModRegistries.Items.LET))
             )
     ),
-    LANTERN("lantern", size -> 8 + size * 2,
+    LANTERN("lantern", size -> 15,
             size -> VoxelShaper.fromBottomCenter(4 + 2 * size, 6 + size),
             FacingLampBlock::new,
             ColoredBlockItem::new,
